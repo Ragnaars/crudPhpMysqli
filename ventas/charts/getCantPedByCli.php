@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Credentials: true");
 require 'C:\xampp\htdocs\abisoft\conexion.php';
 
-$sql = "SELECT * from Pedidos";
+$sql = "SELECT id_cliente, COUNT(id_cliente) as cantidad_clientes FROM Pedidos GROUP BY id_cliente";
 
 if ($query = mysqli_query($conn, $sql)) {
     while ($resultado = mysqli_fetch_assoc($query)) {
